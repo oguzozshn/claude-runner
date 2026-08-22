@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# IDE ve Editör Ayarları (PyCharm / JetBrains)
+.idea/
+.vscode/
+
+# Ortam Değişkenleri ve Gizli Anahtarlar (API key vs. eklersen git'e gitmesin)
+.env
+*.env
+
+# İşletim Sistemi Kalıntıları
+.DS_Store
+Thumbs.db
