@@ -20,3 +20,7 @@ wheels/
 # İşletim Sistemi Kalıntıları
 .DS_Store
 Thumbs.db
+# Test ve tool cache
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/

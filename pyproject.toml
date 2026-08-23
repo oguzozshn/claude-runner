@@ -1,19 +1,19 @@
 [project]
-name = "claudeautostarter"
+name = "claude-runner"
 version = "0.1.0"
-description = "Add your description here"
+description = "Run Claude Code tasks and resume the same session after usage limits."
 readme = "README.md"
+requires-python = ">=3.12"
 authors = [
     { name = "Oguz Ozsahin", email = "oguzozshn@gmail.com" }
 ]
-requires-python = ">=3.14"
 dependencies = [
     "pydantic>=2.13.4",
     "typer>=0.27.1",
 ]
 
 [project.scripts]
-claudeautostarter = "claudeautostarter:main"
+claude-runner = "claude_runner.main:main"
 
 [build-system]
 requires = ["uv_build>=0.12.5,<0.13.0"]
@@ -25,3 +25,45 @@ dev = [
     "pytest>=9.1.1",
     "ruff>=0.16.4",
 ]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = [
+    "ANN",  # missing type annotations
+    "ARG",  # unused arguments
+    "B",    # bugbear
+    "C90",  # mccabe complexity
+    "E",    # pycodestyle errors
+    "F",    # pyflakes
+    "I",    # import sorting
+    "N",    # pep8-naming
+    "PTH",  # prefer pathlib over os.path
+    "RET",  # return statements
+    "RUF",
+    "SIM",  # simplifications
+    "TID",  # tidy imports
+    "UP",   # pyupgrade
+    "W",
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["ARG002"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 8
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src", "tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
